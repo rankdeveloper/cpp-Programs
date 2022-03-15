@@ -1,56 +1,57 @@
-#include<iostream>
-#include<conio.h>
+#include <iostream>
+#include <conio.h>
 using namespace std;
 
-class Book{
-    int Book_No;
-    char Book_Title[20];
-    float Price;
-
-    float Total_cost(int n){
-        float total = Price*n;
-        return total;
+class Teacher{
+    char name[20] , subject[10];
+    float basic , DA , HRA , salary;
+    float Calculate(){
+        salary =basic+DA+HRA;
+        return salary;
     }
 
     public:
-    void input();
-    void purchase();
-    
-    };
-
-   void Book :: input(){
-    cout<<"Enter book number : ";
-    cin>>Book_No;
-
-    cout<<"Enter the Book Title : ";
-    cin>>Book_Title;
-
-    cout<<"Enter the Book Price : ";
-    cin>>Price;
-
-    };
-
-
-void Book :: purchase(){
-
-cout<<"Enter the number of copies : ";
-int n;
-cin>>n;
-
-float total = Total_cost(n);
-
-cout<<"Total cost is : " <<total;
-
+    void Readdata();
+    void Displaydata();
 };
+
+    
+    void Teacher::Readdata(){
+        cout<< endl << "Enter name :";
+        gets(name);
+
+        cout<< endl << "Enter subject :";
+        gets(subject);
+
+        cout<<"Enter basic : ";
+        cin>>basic;
+
+       cout<<"Enter DA : ";
+        cin>>DA;
+
+        cout<<"Enter HRA : ";
+        cin>>HRA;
+
+        Calculate();
+
+    }
+
+    void Teacher ::Displaydata(){
+        cout<<"Name : "<<name <<endl;
+        cout<<"Subject  : "<<subject <<endl;
+        cout<<"Basic : "<<basic <<endl;
+        cout<<"DA : "<<DA <<endl;
+        cout<<"HRA : "<<HRA <<endl;
+        cout<<"Salary : "<<salary <<endl;
+
+    };
 
 
 int main(){
-    
-   Book obj;
+Teacher obj;
 
-   obj.input();
-   obj.purchase();
-   
+obj.Readdata();
+obj.Displaydata();
+
     return 0;
-
 }
