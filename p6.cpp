@@ -1,38 +1,106 @@
-
-//SWAPPING OF TWO NUMBERS WITHOUT USING THIRD VARIABLE
-
 #include <iostream>
 using namespace std;
 
-class SWAP{
-    int a , b; //10 20
-
+class menuDriven {
+    
     public:
-    void get();
-    void display();
+    void biggestNum();
+    void posNeg();
+    void factorial();
+    void exitProgram();
 };
 
-void SWAP :: get(){
-    cout<<"Enter the first value : ";
-    cin>>a;
 
-    cout<<"Enter the second value : ";
-    cin>>b;
+void menuDriven:: biggestNum(){
+    cout<<"I am biggest num finder"<<endl;
+    int num1 , num2;
+    cout<<"Enter the value of num1 : ";
+    cin>>num1;
+
+    cout<<"Enter the value of num2 : ";
+    cin>>num2;
+
+    if(num1>num2)
+    cout<<"Biggest num is : "<<num1;
+
+    else
+    cout<<"Biggest num is : "<<num2;
+
 }
 
-void SWAP:: display(){
-    a=a+b; // 30
-    b=a-b; //10
-    a=a-b; //20
+void menuDriven:: posNeg(){
+    cout<<"I am Positive / Negative num Finder "<<endl;
+    cout<<"Enter the value to check whether num is Positive/Negative "<<endl;
+    int num;
+    cin>>num;
 
-    cout<<"After swapping of a = "<<a <<" , b  = "<<b;
+    if(num>=0)
+    cout<<"You enterd a Positive Number ";
 
-};
+    else
+     cout<<"You enterd a Negative Number ";
+}
+
+
+
+void menuDriven::factorial(){
+    cout<<"I am Factorial Finder "<<endl;
+    cout<<"Enter the num to find Factorial - e.g : 5" <<endl;
+
+    int num , fact=1;
+    cin>>num;
+
+    for(int i=1; i<=num; i++){
+        fact*=i;
+    }
+
+    cout<<"Factorial of : "<<num <<"  is : "<<fact;
+}
+
+
+void menuDriven:: exitProgram(){
+    exit(0);
+    cout<<"End of Program ";
+}
 
 int main(){
-    SWAP obj;
-    obj.get();
-    obj.display();
+   
+    menuDriven obj;
+
+    cout<<"Enter 1 for BiggestNum "<<endl;
+    cout<<"Enter 2  for Find Positive / Negative "<<endl;
+    cout<<"Enter 3 to Find Factorial  "<<endl;
+    cout<<"Enter 4 to exit from Program  "<<endl;
+
+     int userInput;
+    cin>>userInput;
+
+    
+
+
+switch (userInput)
+{
+case 1:
+    obj.biggestNum();
+    break;
+
+case 2:
+    obj.posNeg();
+    break;
+
+case 3:
+    obj.factorial();
+    break;
+
+case 4:
+    obj.exitProgram();
+    break;
+
+
+default:
+    cout<<"Something is going wrong ";
+}
+   
 
     return 0;
 }

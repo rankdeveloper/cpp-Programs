@@ -1,41 +1,50 @@
-
-//SWAPPING OF TWO NUMBERS USING THIRD VARIABLE
-
 #include <iostream>
 using namespace std;
 
-class SWAP{
-    int a , b; //10 20
+class sum{
 
-    public:
-    void get();
-    void display();
+int arr[5];
+
+public:
+
+void input();
+void display();
+
+
 };
 
-void SWAP :: get(){
-    cout<<"Enter the first value : ";
-    cin>>a;
 
-    cout<<"Enter the second value : ";
-    cin>>b;
+void sum:: input(){
+  
+
+    cout<<"Enter the values of  array e.g 1 2 3 4 5" <<endl;
+  
+
+
+   cin>>arr[0]>>arr[1]>>arr[2]>>arr[3]>>arr[4];
+
 }
 
-void SWAP:: display(){
+void sum :: display(){
+   int sumEven=0 , sumOdd;
 
+   for(int i=0;  i<=4; i++){
 
-    //10 20
+       if(arr[i]%2==0)
+       sumEven+=arr[i];
 
-    int t=a;
-    a=b;
-    b=t;
+       else 
+       sumOdd+=arr[i];
+   };
 
-    cout<<"After swapping of a = "<<a <<" , b  = "<<b;
+    cout<<"Sum of Even num :  "<<sumEven <<endl;
+    cout<<"Sum of Odd num :  "<<sumOdd <<endl;
 
-};
+}
 
 int main(){
-    SWAP obj;
-    obj.get();
+    sum obj;
+    obj.input();
     obj.display();
 
     return 0;
